@@ -80,7 +80,7 @@ export default {
     defaultLocale: 'en',
   },
   axios: {
-    baseURL: process.env.API_AUTH_URL
+    baseURL: 'https://f-commerceapi.herokuapp.com/'
   },
   /*
 ** Auth module configuration
