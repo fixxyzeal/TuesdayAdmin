@@ -4,9 +4,10 @@
   </base-alert>
 </template>
 
-<script>
+<script lang="ts">
+import  Vue from "vue"
 import BaseAlert from './BaseAlert.vue';
-export default {
+export default Vue.extend({
   name: "Notification",
   components: {
     BaseAlert
@@ -16,12 +17,12 @@ export default {
     type: {
       type: String,
       default: "success",
-      validator: (val) => ["danger", "success"].includes(val),
+      validator: (val:string) => ["danger", "success"].includes(val),
     },
     message: {
       type: String,
       default: "",
     },
   },
-};
+});
 </script>

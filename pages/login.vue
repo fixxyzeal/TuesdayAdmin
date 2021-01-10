@@ -1,7 +1,6 @@
 <template>
-  
   <section class="section">
-    <br>
+    <br />
     <div class="container">
       <div class="columns">
         <div class="column is-4 is-offset-4">
@@ -13,17 +12,27 @@
             <div class="field">
               <label class="label">Email</label>
               <div class="control">
-                <base-input addon-left-icon="tim-icons icon-single-02" placeholder="Email"  v-model="email"  type="text" name="email">
+                <base-input
+                  addon-left-icon="tim-icons icon-single-02"
+                  placeholder="Email"
+                  v-model="email"
+                  type="text"
+                  name="email"
+                >
                 </base-input>
-             
               </div>
             </div>
             <div class="field">
               <label class="label">Password</label>
               <div class="control">
-                <base-input addon-left-icon="tim-icons icon-key-25" placeholder="Password"  v-model="password"  type="password" name="password">
+                <base-input
+                  addon-left-icon="tim-icons icon-key-25"
+                  placeholder="Password"
+                  v-model="password"
+                  type="password"
+                  name="password"
+                >
                 </base-input>
-               
               </div>
             </div>
             <div class="control">
@@ -42,25 +51,28 @@
   </section>
 </template>
 
-<script>
-import Notification from "~/components/Notification";
+<script lang="ts">
+
+import  Vue from "vue"
+import  Notification  from "@/components/Notification.vue";
 import { BaseButton } from "@/components";
-export default {
-   layout: 'login',
+
+export default Vue.extend({
+  layout: "login",
+  middleware: "guest",
   components: {
     Notification,
     BaseButton,
   },
-  middleware: "guest",
   data() {
     return {
-      email: "",
-      password: "",
+      email: '',
+      password: '',
       error: null,
-    };
+    }
   },
   methods: {
-    async login() {
+    async login(): Promise<void> {
       this.error = null;
       try {
         await this.$auth.loginWith("local", {
@@ -69,11 +81,11 @@ export default {
             password: this.password,
           },
         });
-        this.$router.push("/");
+        await this.$router.push("/");
       } catch (e) {
         this.error = e.response.data.message[0].messages[0].message;
       }
     },
-  },
-};
+  }
+})
 </script>

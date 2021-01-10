@@ -106,7 +106,6 @@ export default {
       (a, o) => (o.indexName == "SET" && a.push(o.index), a),
       []
     );
-
     this.bigChartData.push(set);
     let set50 = data.reduce(
       (a, o) => (o.indexName == "SET50" && a.push(o.index), a),
@@ -183,4 +182,4 @@ function convertDate(date) {
   return dd + "/" + mm + "/" + yyyy;
 }
 </script>
-<style></style>
+
