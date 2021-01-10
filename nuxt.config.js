@@ -53,7 +53,10 @@ export default {
   /*
   ** Nuxt.js dev-modules
   */
-  buildModules: [],
+  buildModules: [ 
+    // https://go.nuxtjs.dev/typescript
+    '@nuxt/typescript-build',
+  ],
   /*
   ** Nuxt.js modules
   */
@@ -80,7 +83,7 @@ export default {
     defaultLocale: 'en',
   },
   axios: {
-    baseURL: 'https://f-commerceapi.herokuapp.com/'
+    baseURL: 'https://fsdapigateway.herokuapp.com/'
   },
   /*
 ** Auth module configuration
@@ -91,20 +94,20 @@ export default {
       local: {
         endpoints: {
           login: {
-            url: 'auth/local',
+            url: 'fcommerce/auth/local',
             method: 'post',
             propertyName: 'jwt'
           },
           user: {
-            url: 'users/me',
+            url: 'fcommerce/users/me',
             method: 'get',
             propertyName: false
           },
-          logout: false
+          logout:false
         }
       }
     },
-  
+
   },
   /*
   ** Build configuration
