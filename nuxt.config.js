@@ -94,12 +94,12 @@ export default {
       local: {
         endpoints: {
           login: {
-            url: 'fcommerce/auth/local',
+            url: 'magicblog/auth/local',
             method: 'post',
             propertyName: 'jwt'
           },
           user: {
-            url: 'fcommerce/users/me',
+            url: 'magicblog/users/me',
             method: 'get',
             propertyName: false
           },
